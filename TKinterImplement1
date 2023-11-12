@@ -1,0 +1,144 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Nov  4 15:20:32 2023
+
+@author: Kaitl
+"""
+
+#tried to use tkinter
+import webbrowser
+import tkinter as tk
+import time
+
+leaveLoop = (False, "")
+
+def open_url():
+    url = "https://www.oprahdaily.com/life/health/a27507222/how-to-stop-being-sad/"
+    webbrowser.open(url)
+
+def change_UI(message, currentUI):
+     currentUI.destroy()
+     if message == "Hi! How are you feeling today? ":
+          main = tk.Tk()
+          main.title("Hi! How are you feeling today?")
+          window = tk.Frame(root)
+          window.grid()
+          main.mainloop
+          return waitForButtonPress()
+
+     elif message == "Oh no! What's going on? ":
+          sad = tk.Tk()
+          sad.title("Oh no! What's going on? ")
+          window = tk.Frame(root)
+          window.grid()
+
+     elif message == "I'm sorry to hear that, I can't even imagine what that is like. Please elaborate on how you're feeling. " or message == "Thank you for opening up to me, it takes a lot of strength to do that. Please elaborate on how you're feeling. ":
+          tihs
+     elif message == "Would you like to see a therapist by any chance (y/n)? ":
+          this
+     elif message == "Would you like to see some resources for depression (y/n)? ":
+          this
+     elif message == "Congrats! Here's some cute cat videos to celebrate":
+
+
+root = tk.Tk()
+root.title(title)
+window = tk.Frame(root)
+window.grid()
+
+root = tk.Tk()
+root.title(title)
+window = tk.Frame(root)
+window.grid()
+
+
+# greeting = tk.Label(text="Hi! On a scale of 1-10, how are you feeling today?").grid(columnspan=2, padx=20, pady=20, row=1)
+
+# buttonHappy = tk.Button(
+#      main,
+#      text="Sad",
+#      width=10,
+#      height=5, 
+#      bg="purple",
+#      fg="yellow",
+#      command=pressButton("Sad")
+#      ).grid(column=0, row=2)
+
+  
+# buttonSad = tk.Button(
+#      main,
+#      text="Happy",
+#      width=10,
+#      height=5,
+#      command=open_url
+#      ).grid(column=1, row=2)
+
+
+# buttonAlwaysSad = tk.Button(
+#      root,
+#      text="Sad",
+#      width=10,
+#      height=5, 
+#      bg="purple",
+#      fg="yellow",
+#      command=open_url
+#      ).grid(column=0, row=2)
+
+  
+# buttonDontKnow = tk.Button(
+#      root,
+#      text="Happy",
+#      width=10,
+#      height=5,
+#      command=open_url
+#      ).grid(column=1, row=2)
+
+
+# buttonSomethingBad = tk.Button(
+#      root,
+#      text="Sad",
+#      width=10,
+#      height=5, 
+#      bg="purple",
+#      fg="yellow",
+#      command=open_url
+#      ).grid(column=0, row=2)
+
+  
+# buttonNoTalking = tk.Button(
+#      root,
+#      text="Happy",
+#      width=10,
+#      height=5,
+#      command=open_url
+#      ).grid(column=1, row=2)
+
+def pressButton(t):
+     global leaveLoop
+     leaveLoop = (True, t)
+
+def waitForButtonPress():
+     global leaveLoop
+     leaveLoop = (False, "")
+     buttons = [buttonHappy, buttonSad, buttonAlwaysSad, buttonDontKnow, buttonNoTalking, buttonSomethingBad]
+     while True:
+          time.sleep(.2)
+          for b in buttons:
+               if b.text == leaveLoop[1] and leaveLoop[0]:
+                    leaveLoop = (False, "")
+                    return b.text
+          print(leaveLoop)
+
+
+#URL that will open if user says "sad"
+#url = "https://www.oprahdaily.com/life/health/a27507222/how-to-stop-being-sad/"
+
+#print("Hi! I hope you're doing well!")
+
+# user input is sad
+#user_input = input("How are you feeling?:")
+
+#if user_input.lower() == "sad":
+    #webbrowser.open(url)
+    
+main.mainloop()
